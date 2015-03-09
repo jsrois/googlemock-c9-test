@@ -29,3 +29,5 @@
 
 dependencies
 .c9
+code/build
+*Makefile*
