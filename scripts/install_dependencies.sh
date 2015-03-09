@@ -8,5 +8,5 @@ sudo apt-get install qt5-default cmake
 # install googlemock/googletest
 . ./install_googlemock.sh
 
-export GMOCK_PATH=$(pwd ..)/dependencies/gmock-1.7.0
+export GMOCK_PATH=$(pwd)/../dependencies/gmock-1.7.0
 export GTEST_PATH=$GMOCK_PATH/gtest
