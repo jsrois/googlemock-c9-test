@@ -3,4 +3,6 @@ PLATFORM_BUILD_PATH  = $$(PWD)/build
 PLATFORM_TESTS_PATH  = $$(PWD)/test
 
 
-DEPS_FILE = deps.pri
+DEPS_FILE = $${PWD}/deps.pri
+
+QMAKE_CLEAN += *.o PLATFORM_BUILD_PATH/*
