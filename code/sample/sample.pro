@@ -4,7 +4,8 @@ CONFIG -= app_bundle
 CONFIG -= qt
 
 SOURCES += main.cpp \
-    sampletest.cpp
+    sampletest.cpp \
+    platform.h
 
 GMOCK_PATH = $$(GMOCK_PATH)
 GTEST_PATH = $${GMOCK_PATH}/gtest

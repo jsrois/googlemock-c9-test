@@ -1,39 +1,28 @@
-class Bar {
-public: 
-virtual void crap(){;}
-    
-};
 
-
-class Foo{
-public:
-    
-    virtual bool shit(Bar&bar){
-        bar.crap();
-        return true;
-        
-    }
-};
-
-
-
-
+#include "platform.h"
 #include <gmock/gmock.h>
 using namespace testing;
 
-class BarMock : public Bar {
-  public:
-  MOCK_METHOD0(crap,void());
-};
-
-class SampleTest : public Test {
+class VideoAccessMock : public VideoAccess
+{
 public: 
-    Foo foo;
+    MOCK_METHOD0(getData,VideoData());
 };
 
-TEST_F(SampleTest,InitialSampleTest){
-    BarMock bar;
-    EXPECT_CALL(bar,crap()).Times(1);
-    foo.shit(bar);
+
+class SampleTest : public Test
+{
+
+};
+
+
+TEST(SampleTest,InitialSampleTest){
+    VideoAccessMock videoAccess;
+    SQLController sqlController;
+    
+    EXPECT_CALL(videoAccess,getData()).Times(2).WillRepeatedly(Return(VideoData()));
+    
+    Platform platform(&videoAccess,&sqlController);
+    platform.run();
     EXPECT_TRUE(true);
 }
