@@ -12,15 +12,17 @@ public:
 
 class SampleTest : public Test
 {
-
+public:
+    VideoAccessMock videoAccess;
+    SQLController   sqlController;
 };
 
 
-TEST(SampleTest,InitialSampleTest){
-    VideoAccessMock videoAccess;
-    SQLController sqlController;
+TEST_F(SampleTest,InitialSampleTest){
     
-    EXPECT_CALL(videoAccess,getData()).Times(2).WillRepeatedly(Return(VideoData()));
+    EXPECT_CALL(videoAccess,getData())
+        .Times(2)
+        .WillRepeatedly(Return(VideoData()));
     
     Platform platform(&videoAccess,&sqlController);
     platform.run();
