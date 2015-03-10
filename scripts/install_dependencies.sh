@@ -2,7 +2,7 @@
 
 # these are the dependencies to be installed in a Cloud9 Ubuntu environment (march'15)
 sudo apt-get update
-sudo apt-get install qt5-default cmake
+sudo apt-get install qt5-default cmake lcov
 
  
 # install googlemock/googletest
